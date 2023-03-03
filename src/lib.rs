@@ -29,7 +29,7 @@ impl Mvideo {
     pub fn save(&self, filename: &str) {
         let mut video_buffer = Cursor::new(Vec::new());
         let mut mp4muxer = Mp4Muxer::new(&mut video_buffer);
-        mp4muxer.init_video(512, 512, false, "Moving circle.");
+        mp4muxer.init_video(self.width as i32, self.height as i32, false, filename);
         mp4muxer.write_video(&self.buf);
         mp4muxer.close();
 
@@ -38,6 +38,6 @@ impl Mvideo {
         let mut video_bytes = Vec::new();
         video_buffer.read_to_end(&mut video_bytes).unwrap();
 
-        std::fs::write("circle.mp4", &video_bytes).unwrap();
+        std::fs::write(filename, &video_bytes).unwrap();
     }
 }
