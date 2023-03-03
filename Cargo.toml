@@ -1,0 +1,11 @@
+[package]
+name = "mvideo"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+minimp4 = "0.1.0"
+openh264 = "0.4.0"
+limage = { git = "https://github.com/Carlsonen/limage.git" }
